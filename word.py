@@ -1,5 +1,4 @@
 import random
-import sys
 
 
 class Word:
@@ -47,14 +46,11 @@ class Word:
         return False
 
     def show_letters(self, letter, word):
+        """ When in word is letter return string with that letter """
         for i in range(0, len(self.english_word)):
             if word[i] != self.english_word[i] and letter == self.english_word[i]:
                 list_word = list(word)
                 list_word[i] = letter
                 word = ''.join(list_word)
-        if word == self.english_word:
-            print(word)
-            print('WIN!')
-            sys.exit()
-        else:
-            return word
+
+        return word

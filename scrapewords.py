@@ -1,6 +1,8 @@
+import random
 import sys
 import requests
 import pymongo
+import word
 from bs4 import BeautifulSoup
 
 
@@ -72,3 +74,13 @@ def find_word_by_number(number):
     my_db = my_client['python-words']
     my_col = my_db['words']
     return my_col.find_one({'number': number})
+
+
+def find_random_word():
+    """ Return type Word object which is random word from database """
+    random_word = find_word_by_number(random.randrange(1, length_of_collection() + 1))
+    game_word = word.Word(random_word['number'],
+                          random_word['english_word'],
+                          random_word['description'],
+                          random_word['polish_word'])
+    return game_word
