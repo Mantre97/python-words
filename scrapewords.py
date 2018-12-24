@@ -13,7 +13,7 @@ def scrape_words():
 
     print('Scrapping words is in progress... Please wait a minute.')
     try:
-        source = requests.get('https://www.vocabulary.com/lists/351211').text
+        source = requests.get('https://www.vocabulary.com/lists/1976472').text
         soup = BeautifulSoup(source, 'lxml')
 
     except requests.exceptions.RequestException:
